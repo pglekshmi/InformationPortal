@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Information Portal</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <script src="/ui/index.js"></script>
+  </head>
+
+  <body>
+    <div class='flex flex-col h-screen'>
+        <div class='flex flex-col justify-end items-end pr-20 h-screen text-center'>
+          <!-- <Link to='/' className='border-solid bg-teal-700 font-bold hover:bg-cyan-500 text-white py-2 px-8 rounded'>Home</Link> -->
+        </div>
+
+        <p class='flex flex-row  mb-4 pl-20 text-3xl font-bold  mb-8'>Enter Certificate Details</p>
+        <br />
+        <div class='flex flex-row  mb-4 pl-20'>
+          <table>
+            <tbody>
+              <tr>
+                <td><p class='text-lg font-bold'>Certificate ID:</p></td>
+                <td>
+                  <div class='pl-20'>
+                    <input
+                      id="ID"
+                      type="text"
+                      name="ID"
+                      placeholder="Enter text here"
+                      class="border-2 border-teal-700 focus:border-cyan-500 outline-none mb-6 py-2 px-10 rounded"
+                    /></div></td>
+              </tr>
+              <tr>
+                <td><p class='text-lg font-bold'>Candidate Name:</p></td>
+                <td>
+                  <div class='pl-20'>
+                    <input
+                      id="Name"
+                      type="text"
+                      name="Name"
+                      placeholder="Enter text here"
+                      class="border-2 border-teal-700 focus:border-cyan-500 outline-none mb-6 py-2 px-10 rounded"
+                    /></div></td>
+              </tr>
+              <tr>
+                <td><p class='text-lg font-bold' >Course Name:</p></td>
+                <td>
+                  <div class='pl-20'>
+                    <input
+                      id="CName"
+                      type="text"
+                      name="CName"
+                      placeholder="Enter text here"
+                      class="border-2 border-teal-700 focus:border-cyan-500 outline-none mb-6 py-2 px-10 rounded"
+                    /></div></td>
+              </tr>
+              <tr>
+                <td><p class='text-lg font-bold'>Grade:</p></td>
+                <td>
+                  <div class='pl-20'>
+                    <input
+                      id="Grade"
+                      type="text"
+                      name="Grade"
+                      placeholder="Enter text here"
+                      class="border-2 border-teal-700 focus:border-cyan-500 outline-none mb-6 py-2 px-10 rounded"
+                    /></div></td>
+              </tr>
+              <tr>
+                <td><p class='text-lg font-bold' >Date:</p></td>
+                <td>
+                  <div class='pl-20'>
+                    <input
+                      id="Date"
+                      type="date"
+                      name="Date"
+                      class="border-2 border-teal-700 focus:border-cyan-500 outline-none mb-6 py-2 px-16 rounded"
+                    /></div></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+
+        <div class='flex flex-col justify-center items-center h-screen text-center'>
+          <button onClick="handleSubmit()" class='border-solid bg-teal-700 font-bold hover:bg-cyan-500 text-white py-2 px-8 rounded'>Submit</button>
+        </div>
+        <!-- <div class='flex flex-col h-screen'> -->
+            <!-- <div class='flex flex-row'> -->
+            <!-- <div class='flex  justify-end p-4'><Link to="/" class="border-solid bg-teal-700 hover:bg-cyan-500 text-white py-2 font-bold px-8 rounded">Home</Link></div> -->
+            <!-- <div class='flex justify-end p-4 '><Link to="/Issue" class="border-solid bg-teal-700 hover:bg-cyan-500 text-white font-bold py-2 px-8 rounded">Issue Certificate</Link></div></div> -->
+            <!-- <div class="flex flex-col justify-center items-center h-screen text-center"> -->
+                <!-- <h1 class="text-3xl font-bold text-center mb-8"> -->
+              <!-- Certificate Dapp -->
+            <!-- </h1><br></br> -->
+            <div class="text-center">
+            <input
+                class="border-2 border-teal-700 focus:border-cyan-500 outline-none mb-6 py-2 px-8 rounded"
+                id="ID"
+                type="text"
+                name=ID
+                placeholder="Enter text here"
+                
+              />
+              <button onClick="handleSearch()" class='border-solid bg-teal-700 font-bold hover:bg-cyan-500 text-white py-2 px-8 rounded'>Search</button>
+            </div>
+        <p id="demo"> </p></div>
+
+  </body>
+</html>
