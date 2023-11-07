@@ -51,11 +51,11 @@ const server = http.createServer((req, res) => {
     /** add other headers as per requirement */
   };
   console.log("req.method", req.method);
-  // if (req.method === "OPTIONS") {
-  //   res.writeHead(204, headers);
-  //   res.end();
-  //   return;
-  // }
+  if (req.method === "OPTIONS") {
+    res.writeHead(204, headers);
+    res.end();
+    return;
+  }
 
   if (req.method === "POST" && req.url === "/") {
     let data = "";
