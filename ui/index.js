@@ -27,6 +27,7 @@ function handleSubmit(){
 
 async function handleSearch(){
   const result = await fetch('http://127.0.0.1:3000/view');
+  // const data = await JSON.parse(result.body);
   console.log(result);
   // Document.getElementById("demo").innerHTML = result;
 }

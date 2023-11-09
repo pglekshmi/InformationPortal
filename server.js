@@ -47,10 +47,10 @@
 
 const http = require("http");
 const PORT = 3000;
-var InfoData = "";
+let InfoData;
 const server = http.createServer((req, res) => {
   const headers = {
-    "Access-Control-Allow-Origin": "*",
+    "Access-Control-Allow-Origin": "http://127.0.0.1:5500",
     "Access-Control-Allow-Headers": "*",
     "Access-Control-Allow-Methods": "OPTIONS, POST, GET",
     "Access-Control-Max-Age": 2592000, // 30 days
