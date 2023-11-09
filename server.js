@@ -45,27 +45,72 @@
 //         console.log(`Server is running on port ${PORT}`);
 //       });
 
-
-      const http = require('http');
-const port = 3000;
-http.createServer((req, res) => {
-    console.log('New Server')
+const http = require("http");
+const PORT = 3000;
+var InfoData = "";
+const server = http.createServer((req, res) => {
   const headers = {
-    'Access-Control-Allow-Origin': '*',
-    'Access-Control-Allow-Methods': 'OPTIONS, POST, GET',
-    'Access-Control-Max-Age': 2592000, // 30 days
+    "Access-Control-Allow-Origin": "*",
+    "Access-Control-Allow-Headers": "*",
+    "Access-Control-Allow-Methods": "OPTIONS, POST, GET",
+    "Access-Control-Max-Age": 2592000, // 30 days
     /** add other headers as per requirement */
   };
-  if (req.method === 'OPTIONS') {
+  console.log("req.method", req.method);
+  if (req.method === "OPTIONS") {
     res.writeHead(204, headers);
     res.end();
     return;
   }
-  if (['GET', 'POST'].indexOf(req.method) > -1) {
-    res.writeHead(200, headers);
-    res.end('Hello World');
-    return;
+
+  if (req.method === "POST" && req.url === "/issue") {
+    let data = "";
+    req.on("data", (chunk) => {
+      data += chunk;
+    });
+    req.on("end", () => {
+      try {
+        let jsonData = JSON.parse(data);
+        InfoData = jsonData;
+        console.log("jsonData", InfoData);
+        res.writeHead(200, headers);
+        res.end(
+          JSON.stringify({
+            data: jsonData,
+            message: "Data received successfully",
+          })
+        );
+        return;
+      } catch (error) {
+        console.error("Error parsing JSON:", error);
+        res.writeHead(400, headers);
+        res.end(JSON.stringify({ error: "Invalid JSON data" }));
+      }
+    });
+  } 
+
+  if (req.method === "GET" && req.url === "/view") {
+       try{
+        res.writeHead(200, headers);
+        res.end(
+          JSON.stringify({
+            data: InfoData,
+            message: "Data received successfully",
+          })
+        );
+        return;
+      } catch (error) {
+        console.error("Error parsing JSON:", error);
+        res.writeHead(400, headers);
+        res.end(JSON.stringify({ error: "Invalid JSON data" }));
+      }}
+    
+   else {
+    res.writeHead(404, { "Content-Type": "text/plain" });
+    res.end("Not Found");
   }
-  res.writeHead(405, headers);
-  res.end(`${req.method} is not allowed for the request.`);
-}).listen(port);
+});
+
+server.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
+});
